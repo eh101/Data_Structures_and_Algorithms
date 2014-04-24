@@ -10,7 +10,7 @@ struct Node
 };
 typedef struct Node *LinkList;
 
-LinkList createNullList_link() //åˆ›å»ºç©ºé“¾è¡¨
+LinkList createNullList_link() //´´½¨¿ÕÁ´±í
 {
 	LinkList llist = new Node();
 	if (llist != NULL)
@@ -19,7 +19,7 @@ LinkList createNullList_link() //åˆ›å»ºç©ºé“¾è¡¨
 		cout << "Out of space!! Can't create list!\n";
 }
 
-bool insertPost_link(LinkList llist, PNode p, int x) //åœ¨på¤„æ’å…¥æ•°æ®x
+bool insertPost_link(LinkList llist, PNode p, int x) //ÔÚp´¦²åÈëÊý¾Ýx
 {
 	PNode q = new Node();
 	if (q == NULL)
@@ -36,7 +36,7 @@ bool insertPost_link(LinkList llist, PNode p, int x) //åœ¨på¤„æ’å…¥æ•°æ®x
 	}
 }
 
-bool printList_link(LinkList llist) //æ‰“å°llist
+bool printList_link(LinkList llist) //´òÓ¡llist
 {
 	if (llist->link == NULL)
 	{
