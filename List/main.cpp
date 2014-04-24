@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 using namespace std;
 
 struct Node;
@@ -10,7 +10,7 @@ struct Node
 };
 typedef struct Node *LinkList;
 
-LinkList createNullList_link() //´´½¨¿ÕÁ´±í
+LinkList createNullList_link() //å¤§å®¶å¥½ï¼Œæˆ‘æ˜¯è¢«æ‹¿æ¥åˆ›å»ºä¸€ä¸ªç©ºé“¾è¡¨çš„å“¦(oï¾ŸÏ‰ï¾Ÿo)
 {
 	LinkList llist = new Node();
 	if (llist != NULL)
@@ -19,7 +19,7 @@ LinkList createNullList_link() //´´½¨¿ÕÁ´±í
 		cout << "Out of space!! Can't create list!\n";
 }
 
-bool insertPost_link(LinkList llist, PNode p, int x) //ÔÚp´¦²åÈëÊı¾İx
+bool insertPost_link(LinkList llist, PNode p, int x) //åœ¨på¤„æ’å…¥æ•°æ®x
 {
 	PNode q = new Node();
 	if (q == NULL)
@@ -36,7 +36,7 @@ bool insertPost_link(LinkList llist, PNode p, int x) //ÔÚp´¦²åÈëÊı¾İx
 	}
 }
 
-bool printList_link(LinkList llist) //´òÓ¡llist
+bool printList_link(LinkList llist) //æ‰“å°llist
 {
 	if (llist->link == NULL)
 	{
@@ -56,10 +56,10 @@ bool printList_link(LinkList llist) //´òÓ¡llist
 	}
 }
 
-PNode findByValue_Link(LinkList llist, int x) //°´Öµx²éÕÒÎ»ÖÃ£¨µØÖ·£©
+PNode findByValue_Link(LinkList llist, int x) //æŒ‰å€¼xæŸ¥æ‰¾ä½ç½®ï¼ˆåœ°å€ï¼‰
 {
 	PNode p = llist;
-	while (p!=NULL&&p->date!=x) //Î´ÕÒµ½ÖµÔò·µ»ØNULL
+	while (p!=NULL&&p->date!=x) //æœªæ‰¾åˆ°å€¼åˆ™è¿”å›NULL
 	{
 		p = p->link;
 	}
@@ -94,7 +94,7 @@ int main()
 	}
 	printList_link(list1);
 	cout << "Address of 10 is " << findByValue_Link(list1, 10) << endl;
-	if (deleteByValue_List(list1, findByValue_Link(list1, 10))) //É¾³ıÖµÎª10µÄ½Úµã
+	if (deleteByValue_List(list1, findByValue_Link(list1, 10))) //åˆ é™¤å€¼ä¸º10çš„èŠ‚ç‚¹
 		cout << "Delete completed!\n";
 	else
 		cout << "Delete failed!\n";
