@@ -10,7 +10,7 @@ struct Node
 };
 typedef struct Node *LinkList;
 
-LinkList createNullList_link()
+LinkList createNullList_link() //创建空链表
 {
 	LinkList llist = new Node();
 	if (llist != NULL)
@@ -19,7 +19,7 @@ LinkList createNullList_link()
 		cout << "Out of space!! Can't create list!\n";
 }
 
-bool insertPost_link(LinkList llist, PNode p, int x)
+bool insertPost_link(LinkList llist, PNode p, int x) //在p处插入数据x
 {
 	PNode q = new Node();
 	if (q == NULL)
@@ -36,7 +36,7 @@ bool insertPost_link(LinkList llist, PNode p, int x)
 	}
 }
 
-bool printList_link(LinkList llist)
+bool printList_link(LinkList llist) //打印llist
 {
 	if (llist->link == NULL)
 	{
