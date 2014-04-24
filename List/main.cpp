@@ -66,7 +66,7 @@ PNode findByValue_Link(LinkList llist, int x) //按值x查找位置（地址）
 	return p;
 }
 
-bool deleteByValue_List(LinkList llist, PNode p)
+bool deleteByValue_List(LinkList llist, PNode p) //我可以被拿来删除llist中地址为p的节点哦╭（′▽‘）╭
 {
 	PNode q = llist;
 	while (q!=NULL&&q->link!=p)
