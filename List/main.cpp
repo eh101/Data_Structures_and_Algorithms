@@ -56,6 +56,32 @@ bool printList_link(LinkList llist) //打印llist
 	}
 }
 
+PNode findByValue_Link(LinkList llist, int x) //按值x查找位置（地址）
+{
+	PNode p = llist;
+	while (p!=NULL&&p->date!=x) //未找到值则返回NULL
+	{
+		p = p->link;
+	}
+	return p;
+}
+
+bool deleteByValue_List(LinkList llist, PNode p)
+{
+	PNode q = llist;
+	while (q!=NULL&&q->link!=p)
+	{
+		q = q->link;
+	}
+	if (q == NULL)
+		return false;
+	else
+	{
+		q->link = p -> link;
+		delete(p);
+		return true;
+	}
+}
 int main()
 {
 	int x;
@@ -67,5 +93,10 @@ int main()
 		insertPost_link(list1, list1, x);
 	}
 	printList_link(list1);
+	cout << "Address of 10 is " << findByValue_Link(list1, 10) << endl;
+	if (deleteByValue_List(list1, findByValue_Link(list1, 10))) //删除值为10的节点
+		cout << "Delete completed!\n";
+	else
+		cout << "Delete failed!\n";
 	return 0;
 }
