@@ -1,12 +1,12 @@
 ﻿#include<iostream>
 using namespace std;
 
+typedef struct Node *LinkList, *PNode;
 struct Node
 {
 	int date;
 	PNode link;
 };
-typedef struct Node *LinkList, *PNode;
 
 LinkList createNullList_link() //大家好，我是被拿来创建一个空链表的哦(oﾟωﾟo)
 {
@@ -29,23 +29,6 @@ bool insertPost_link(LinkList llist, PNode p, int x) //在p后插入数据x
 	{
 		q->date = x;
 		q->link = p->link;
-		p->link = q;
-		return true;
-	}
-}
-
-bool insertBefore_Link(LinkList llist, PNode p, int x) //在p前插入数据x
-{
-	PNode q = new Node();
-	if (q == NULL)
-	{
-		cout << "Out of space!!! Can't create list!\n";
-		return false;
-	}
-	else
-	{
-		q->date = x;
-		q->link = NULL;
 		p->link = q;
 		return true;
 	}
@@ -108,7 +91,6 @@ PNode findRearNode_Link(LinkList llist) //查找llist的尾节点地址
 	return r;
 }
 
-
 int main()
 {
 	int x;
@@ -118,7 +100,7 @@ int main()
 	{
 		cin >> x;
 		//insertPost_link(list1, list1, x);
-		insertBefore_Link(list1, findRearNode_Link(list1), x); //尾插建表，缺点是每次都要查找尾结点
+		insertPost_link(list1, findRearNode_Link(list1), x); //伪尾插建表，缺点是每次都要查找尾结点
 	}
 	printList_link(list1);
 	cout << "Address of 10 is " << findByValue_Link(list1, 10) << endl;
