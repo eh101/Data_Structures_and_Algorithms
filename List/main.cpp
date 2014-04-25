@@ -1,14 +1,12 @@
 ﻿#include<iostream>
 using namespace std;
 
-struct Node;
-typedef struct Node *PNode;
 struct Node
 {
 	int date;
 	PNode link;
 };
-typedef struct Node *LinkList;
+typedef struct Node *LinkList, *PNode;
 
 LinkList createNullList_link() //大家好，我是被拿来创建一个空链表的哦(oﾟωﾟo)
 {
@@ -19,7 +17,7 @@ LinkList createNullList_link() //大家好，我是被拿来创建一个空链�
 		cout << "Out of space!! Can't create list!\n";
 }
 
-bool insertPost_link(LinkList llist, PNode p, int x) //在p处插入数据x
+bool insertPost_link(LinkList llist, PNode p, int x) //在p后插入数据x
 {
 	PNode q = new Node();
 	if (q == NULL)
@@ -31,6 +29,23 @@ bool insertPost_link(LinkList llist, PNode p, int x) //在p处插入数据x
 	{
 		q->date = x;
 		q->link = p->link;
+		p->link = q;
+		return true;
+	}
+}
+
+bool insertBefore_Link(LinkList llist, PNode p, int x) //在p前插入数据x
+{
+	PNode q = new Node();
+	if (q == NULL)
+	{
+		cout << "Out of space!!! Can't create list!\n";
+		return false;
+	}
+	else
+	{
+		q->date = x;
+		q->link = NULL;
 		p->link = q;
 		return true;
 	}
@@ -59,17 +74,17 @@ bool printList_link(LinkList llist) //打印llist
 PNode findByValue_Link(LinkList llist, int x) //按值x查找位置（地址）
 {
 	PNode p = llist;
-	while (p!=NULL&&p->date!=x) //未找到值则返回NULL
+	while (p != NULL&&p->date != x) //未找到值则返回NULL
 	{
 		p = p->link;
 	}
 	return p;
 }
 
-bool deleteByValue_List(LinkList llist, PNode p) //我可以被拿来删除llist中地址为p的节点哦╭（′▽‘）╭
+bool deleteByValue_Link(LinkList llist, PNode p) //我可以被拿来删除llist中地址为p的节点哦╭（′▽‘）╭
 {
 	PNode q = llist;
-	while (q!=NULL&&q->link!=p)
+	while (q != NULL&&q->link != p)
 	{
 		q = q->link;
 	}
@@ -77,11 +92,23 @@ bool deleteByValue_List(LinkList llist, PNode p) //我可以被拿来删除llist
 		return false;
 	else
 	{
-		q->link = p -> link;
+		q->link = p->link;
 		delete(p);
 		return true;
 	}
 }
+
+PNode findRearNode_Link(LinkList llist) //查找llist的尾节点地址
+{
+	PNode r = llist;
+	while (r->link != NULL)
+	{
+		r = r->link;
+	}
+	return r;
+}
+
+
 int main()
 {
 	int x;
@@ -90,11 +117,12 @@ int main()
 	for (int i = 0; i < 5; i++)
 	{
 		cin >> x;
-		insertPost_link(list1, list1, x);
+		//insertPost_link(list1, list1, x);
+		insertBefore_Link(list1, findRearNode_Link(list1), x); //尾插建表，缺点是每次都要查找尾结点
 	}
 	printList_link(list1);
 	cout << "Address of 10 is " << findByValue_Link(list1, 10) << endl;
-	if (deleteByValue_List(list1, findByValue_Link(list1, 10))) //删除值为10的节点
+	if (deleteByValue_Link(list1, findByValue_Link(list1, 10))) //删除值为10的节点
 		cout << "Delete completed!\n";
 	else
 		cout << "Delete failed!\n";
