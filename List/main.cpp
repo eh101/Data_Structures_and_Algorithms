@@ -1,10 +1,11 @@
 ﻿#include<iostream>
 using namespace std;
 
+typedef int DataType; //DataType为DataType类型
 typedef struct Node *LinkList, *PNode;
 struct Node
 {
-	int date;
+	DataType info;
 	PNode link;
 };
 
@@ -17,7 +18,7 @@ LinkList createNullList_link() //大家好，我是被拿来创建一个空链�
 		cout << "Out of space!! Can't create list!\n";
 }
 
-bool insertPost_link(LinkList llist, PNode p, int x) //在p后插入数据x
+bool insertPost_link(LinkList llist, PNode p, DataType x) //在p后插入数据x
 {
 	PNode q = new Node();
 	if (q == NULL)
@@ -27,7 +28,7 @@ bool insertPost_link(LinkList llist, PNode p, int x) //在p后插入数据x
 	}
 	else
 	{
-		q->date = x;
+		q->info = x;
 		q->link = p->link;
 		p->link = q;
 		return true;
@@ -46,7 +47,7 @@ bool printList_link(LinkList llist) //打印llist
 		PNode p = llist->link;
 		while (p != NULL)
 		{
-			cout << p->date << " ";
+			cout << p->info << " ";
 			p = p->link;
 		}
 		cout << endl;
@@ -54,10 +55,10 @@ bool printList_link(LinkList llist) //打印llist
 	}
 }
 
-PNode findByValue_Link(LinkList llist, int x) //按值x查找位置（地址）
+PNode findByValue_Link(LinkList llist, DataType x) //按值x查找位置（地址）
 {
 	PNode p = llist;
-	while (p != NULL&&p->date != x) //未找到值则返回NULL
+	while (p != NULL&&p->info != x) //未找到值则返回NULL
 	{
 		p = p->link;
 	}
@@ -67,18 +68,17 @@ PNode findByValue_Link(LinkList llist, int x) //按值x查找位置（地址）
 bool deleteByValue_Link(LinkList llist, PNode p) //我可以被拿来删除llist中地址为p的节点哦╭（′▽‘）╭
 {
 	PNode q = llist;
+	if (p == NULL)
+		return false;
 	while (q != NULL&&q->link != p)
 	{
 		q = q->link;
 	}
 	if (q == NULL)
 		return false;
-	else
-	{
-		q->link = p->link;
-		delete(p);
-		return true;
-	}
+	q->link = p->link;
+	delete(p);
+	return true;
 }
 
 PNode findRearNode_Link(LinkList llist) //查找llist的尾节点地址
@@ -91,9 +91,35 @@ PNode findRearNode_Link(LinkList llist) //查找llist的尾节点地址
 	return r;
 }
 
+DataType findMin_Link(LinkList llist) //找出表中最小的值
+{
+	PNode p = llist->link;
+	DataType temp = p->info;
+	while (p->link != NULL)
+	{
+		p = p->link;
+		if (temp > p->info)
+			temp = p->info;
+	}
+	return temp;
+}
+
+DataType findMax_Link(LinkList llist) //找出表中最大的值
+{
+	PNode p = llist->link;
+	DataType temp = p->info;
+	while (p->link != NULL)
+	{
+		p = p->link;
+		if (temp < p->info)
+			temp = p->info;
+	}
+	return temp;
+}
+
 int main()
 {
-	int x;
+	DataType x;
 	LinkList list1 = createNullList_link();
 	cout << "Enter 5 number:\n";
 	for (int i = 0; i < 5; i++)
@@ -103,10 +129,13 @@ int main()
 		insertPost_link(list1, findRearNode_Link(list1), x); //伪尾插建表，缺点是每次都要查找尾结点
 	}
 	printList_link(list1);
-	cout << "Address of 10 is " << findByValue_Link(list1, 10) << endl;
-	if (deleteByValue_Link(list1, findByValue_Link(list1, 10))) //删除值为10的节点
-		cout << "Delete completed!\n";
-	else
-		cout << "Delete failed!\n";
+	//cout << "Address of 10 is " << findByValue_Link(list1, 10) << endl;
+	//if (deleteByValue_Link(list1, findByValue_Link(list1, 10))) //删除值为10的节点
+	//	cout << "Delete completed!\n";
+	//else
+	//	cout << "Delete failed!\n";
+	//printList_link(list1);
+	cout << "The min in the list is: " << findMin_Link(list1) << endl;
+	cout << "The max in the list is: " << findMax_Link(list1) << endl;
 	return 0;
 }
