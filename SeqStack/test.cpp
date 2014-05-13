@@ -3,7 +3,7 @@
 using namespace std;
 
 
-//just
+//justÖ»ÊÇ
 int main()
 {
 	SeqStack <float> st1;
