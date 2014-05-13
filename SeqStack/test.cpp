@@ -3,7 +3,7 @@
 using namespace std;
 
 
-//justֻ��
+//此处仅用作测试
 int main()
 {
 	SeqStack <float> st1;
