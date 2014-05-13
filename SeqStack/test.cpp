@@ -2,7 +2,7 @@
 #include"SeqStack.h"
 using namespace std;
 
-//此处仅作测试
+//姝ゅ浠呯敤浣滀綔娴嬭瘯
 int main()
 {
 	SeqStack <float> st1;
