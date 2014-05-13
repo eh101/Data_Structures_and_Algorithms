@@ -2,9 +2,12 @@
 #include"SeqStack.h"
 using namespace std;
 
+//Node的构造函数
+
 template <class T>
 Node<T>::Node(){link = NULL;}
 
+//SeqStack的
 template <class T>
 SeqStack<T>::SeqStack(){ Ptop = NULL; }
 

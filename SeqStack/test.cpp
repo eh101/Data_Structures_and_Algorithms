@@ -1,22 +1,23 @@
 #include<iostream>
 #include"SeqStack.h"
-#include"SeqStack.cpp"
 using namespace std;
 
+//¸Ãmain½ö×÷²âÊÔ
 int main()
 {
-	SeqStack <int> st1;
+	SeqStack <float> st1;
 	for (int i = 0; i < 5; i++)
 	{
-		int x;
+		float x;
 		cin >> x;
 		st1.push(x);
 	}
+	cout << st1.size() << endl;
 	for (int i = 0; i < 5; i++)
 	{
-		cout << st1.top()<<"\t";
+		cout << st1.top() << "\t";
 		st1.pop();
 	}
-	cout << endl;
+	cout << endl << st1.size() << endl;;
 	return 0;
 }
