@@ -1,31 +1,31 @@
 #ifndef SEQSTACK_H
 #define SEQSTACK_H
 
-//¿´¼ûÒ»´ó¶Ñ¶«Î÷²»Òª¾ªÑÈ£¬ÀàÄ£°åµÄÊµÏÖÖ»ÄÜĞ´ÔÚÍ·ÎÄ¼şÀï£¡
+//çœ‹è§ä¸€å¤§å †ä¸œè¥¿ä¸è¦æƒŠè®¶ï¼Œç±»æ¨¡æ¿çš„å®ç°åªèƒ½å†™åœ¨å¤´æ–‡ä»¶é‡Œï¼
 
-//Á´Ê½Õ»µÄ½Úµã
+//é“¾å¼æ ˆçš„èŠ‚ç‚¹
 template <class T>
 class Node
 {
 public:
 	T data;
 	Node *link;
-	//NodeµÄ¹¹Ôìº¯Êı
+	//Nodeçš„æ„é€ å‡½æ•°
 	Node(){ link = NULL; }
 };
 
-//Á´Ê½Õ»
+//é“¾å¼æ ˆ
 template <class T>
 class SeqStack
 {
 private:
 	Node<T> *Ptop;
 public:
-	//SeqStackµÄ¹¹Ôìº¯Êı
+	//SeqStackçš„æ„é€ å‡½æ•°
 	SeqStack<T>(){ Ptop = NULL; }
-	//ÅĞ¿Õº¯Êı£¬Îª¿ÕÊ±·µ»Øtrue
+	//åˆ¤ç©ºå‡½æ•°ï¼Œä¸ºç©ºæ—¶è¿”å›true
 	bool empty(){ return(Ptop == NULL); }
-	//Ñ¹Õ»£¬½«inputDataÑ¹Èë
+	//å‹æ ˆï¼Œå°†inputDataå‹å…¥
 	bool push(T inputData)
 	{
 		Node<T> *node = new Node<T>();
@@ -42,7 +42,7 @@ public:
 			return true;
 		}
 	}
-	//½«PtopÖ¸ÏòµÄ½ÚµãµÄÊı¾İ³öÕ»
+	//å°†PtopæŒ‡å‘çš„èŠ‚ç‚¹çš„æ•°æ®å‡ºæ ˆ
 	bool pop()
 	{
 		if (empty())
@@ -58,7 +58,7 @@ public:
 			return true;
 		}
 	}
-	//È¡³öPtopÖ¸ÏòµÄ½ÚµãµÄÊı¾İ£¬²»¸Ä±äÕ»
+	//å–å‡ºPtopæŒ‡å‘çš„èŠ‚ç‚¹çš„æ•°æ®ï¼Œä¸æ”¹å˜æ ˆ
 	T top()
 	{
 		if (empty())
@@ -66,7 +66,7 @@ public:
 		else
 			return Ptop->data;
 	}
-	//µÃ³öÕ»µÄ´óĞ¡
+	//å¾—å‡ºæ ˆçš„å¤§å°
 	int size()
 	{
 		int i = 0;
