@@ -2,9 +2,7 @@
 #include"SeqStack.h"
 using namespace std;
 
-
-//此处仅用作测试
-int main()
+int main()//此处仅用作测试
 {
 	SeqStack <float> st1;
 	for (int i = 0; i < 5; i++)
