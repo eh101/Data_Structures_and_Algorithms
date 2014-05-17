@@ -1,22 +1,26 @@
-#include<iostream>
-#include"LinkStack.h"
+#include <iostream>
+#include <stack>
+#include "LinkStack.h"
 using namespace std;
 
 int main()
 {
-	LinkStack <float> st1;
-	for (int i = 0; i < 5; i++)
+	char item;
+	//STL实现
+	//stack<char> numbers;
+	//自己写的LinkStack模板类
+	LinkStack<char> numbers;
+	cout << "Please enter the string sequence.\nIf you want to quit, Please enter #\n";
+	item = cin.get();
+	while (item != '#')
 	{
-		float x;
-		cin >> x;
-		st1.push(x);
+		numbers.push(item);
+		item = cin.get();
 	}
-	cout << st1.size() << endl;
-	for (int i = 0; i < 5; i++)
-	{
-		cout << st1.top() << "\t";
-		st1.pop();
+	cout << endl;
+	while (!numbers.empty()) {
+		cout << numbers.top();
+		numbers.pop();
 	}
-	cout << endl << st1.size() << endl;;
-	return 0;
+	cout << endl;
 }
