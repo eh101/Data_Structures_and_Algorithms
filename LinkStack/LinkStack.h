@@ -1,57 +1,57 @@
-#ifndef SEQSTACK_H
-#define SEQSTACK_H
+#ifndef _LINKSTACK_H_
+#define _LINKSTACK_H_
 #include<iostream>
 using namespace std;
 
-//çœ‹è§ä¸€å¤§å †ä¸œè¥¿ä¸è¦æƒŠè®¶ï¼Œç±»æ¨¡æ¿çš„å®ç°åªèƒ½å†™åœ¨å¤´æ–‡ä»¶é‡Œï¼
+//¿´¼ûÒ»´ó¶Ñ¶«Î÷²»Òª¾ªÑÈ£¬ÀàÄ£°åµÄÊµÏÖÖ»ÄÜĞ´ÔÚÍ·ÎÄ¼şÀï£¡
 
-//é“¾å¼æ ˆçš„èŠ‚ç‚¹
+//Á´Ê½Õ»µÄ½Úµã
 template <class T>
 class Node
 {
 public:
 	T data;
 	Node *link;
-	//å£°æ˜Nodeæ„é€ å‡½æ•°
+	//ÉùÃ÷Node¹¹Ôìº¯Êı
 	Node();
 };
 
-//å®šä¹‰Nodeçš„æ„é€ å‡½æ•°
+//¶¨ÒåNodeµÄ¹¹Ôìº¯Êı
 template<class T>
 Node<T>::Node(){ link = NULL; }
 
-//é“¾å¼æ ˆ
+//Á´Ê½Õ»
 template <class T>
-class SeqStack
+class LinkStack
 {
 private:
 	Node<T> *Ptop;
 public:
-	//SeqStackçš„æ„é€ å‡½æ•°
-	SeqStack();
-	//åˆ¤ç©ºå‡½æ•°ï¼Œä¸ºç©ºæ—¶è¿”å›true
+	//LinkStackµÄ¹¹Ôìº¯Êı
+	LinkStack();
+	//ÅĞ¿Õº¯Êı£¬Îª¿ÕÊ±·µ»Øtrue
 	bool empty();
-	//å‹æ ˆï¼Œå°†inputDataå‹å…¥
+	//Ñ¹Õ»£¬½«inputDataÑ¹Èë
 	bool push(T inputData);
-	//å°†PtopæŒ‡å‘çš„èŠ‚ç‚¹çš„æ•°æ®å‡ºæ ˆ
+	//½«PtopÖ¸ÏòµÄ½ÚµãµÄÊı¾İ³öÕ»
 	bool pop();
-	//å–å‡ºPtopæŒ‡å‘çš„èŠ‚ç‚¹çš„æ•°æ®ï¼Œä¸æ”¹å˜æ ˆ
+	//È¡³öPtopÖ¸ÏòµÄ½ÚµãµÄÊı¾İ£¬²»¸Ä±äÕ»
 	T top();
-	//å¾—å‡ºæ ˆçš„å¤§å°
+	//µÃ³öÕ»µÄ´óĞ¡
 	int size();
 };
 
-//SeqStackçš„æ„é€ å‡½æ•°
+//LinkStackµÄ¹¹Ôìº¯Êı
 template <class T>
-SeqStack<T>::SeqStack(){ Ptop = NULL; }
+LinkStack<T>::LinkStack(){ Ptop = NULL; }
 
-//åˆ¤ç©ºå‡½æ•°ï¼Œä¸ºç©ºæ—¶è¿”å›true
+//ÅĞ¿Õº¯Êı£¬Îª¿ÕÊ±·µ»Øtrue
 template <class T>
-bool SeqStack<T>::empty(){ return Ptop == NULL; }
+bool LinkStack<T>::empty(){ return Ptop == NULL; }
 
-//å‹æ ˆï¼Œå°†inputDataå‹å…¥
+//Ñ¹Õ»£¬½«inputDataÑ¹Èë
 template <class T>
-bool SeqStack<T>::push(T inputData)
+bool LinkStack<T>::push(T inputData)
 {
 	Node<T> *node = new Node<T>();
 	if (node == NULL)
@@ -68,9 +68,9 @@ bool SeqStack<T>::push(T inputData)
 	}
 }
 
-//å°†PtopæŒ‡å‘çš„èŠ‚ç‚¹çš„æ•°æ®å‡ºæ ˆ
+//½«PtopÖ¸ÏòµÄ½ÚµãµÄÊı¾İ³öÕ»
 template <class T>
-bool SeqStack<T>::pop()
+bool LinkStack<T>::pop()
 {
 	if (empty())
 	{
@@ -86,9 +86,9 @@ bool SeqStack<T>::pop()
 	}
 }
 
-//å–å‡ºPtopæŒ‡å‘çš„èŠ‚ç‚¹çš„æ•°æ®ï¼Œä¸æ”¹å˜æ ˆ
+//È¡³öPtopÖ¸ÏòµÄ½ÚµãµÄÊı¾İ£¬²»¸Ä±äÕ»
 template <class T>
-T SeqStack<T>::top()
+T LinkStack<T>::top()
 {
 	if (empty())
 		cout << "Stack is empty!!\n";
@@ -96,9 +96,9 @@ T SeqStack<T>::top()
 		return Ptop->data;
 }
 
-//å¾—å‡ºæ ˆçš„å¤§å°
+//µÃ³öÕ»µÄ´óĞ¡
 template <class T>
-int SeqStack<T>::size()
+int LinkStack<T>::size()
 {
 	int i = 0;
 	Node<T> *p = Ptop;

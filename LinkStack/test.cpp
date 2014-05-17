@@ -1,10 +1,10 @@
 #include<iostream>
-#include"SeqStack.h"
+#include"LinkStack.h"
 using namespace std;
 
 int main()
 {
-	SeqStack <float> st1;
+	LinkStack <float> st1;
 	for (int i = 0; i < 5; i++)
 	{
 		float x;
