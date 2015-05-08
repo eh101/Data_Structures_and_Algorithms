@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{92730EF0-A6AE-42C7-91B7-B89E5B435D31}</ProjectGuid>
+    <ProjectGuid>{7A33FB90-ADAB-4150-AFDE-142AA60BB223}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>LinkStack</RootNamespace>
+    <RootNamespace>BinaryTree</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -78,10 +78,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="LinkStack.h" />
+    <ClInclude Include="BinaryTree.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="LinkStack.cpp" />
+    <ClCompile Include="BinaryTree.cpp" />
     <ClCompile Include="test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

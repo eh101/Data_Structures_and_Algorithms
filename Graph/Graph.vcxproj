@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{92730EF0-A6AE-42C7-91B7-B89E5B435D31}</ProjectGuid>
+    <ProjectGuid>{48EE6510-D0BF-46FF-BD4A-CEEAA2F43698}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>LinkStack</RootNamespace>
+    <RootNamespace>Graph</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -78,11 +78,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="LinkStack.h" />
+    <ClCompile Include="Graph.cpp" />
+    <ClCompile Include="Table.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="LinkStack.cpp" />
-    <ClCompile Include="test.cpp" />
+    <ClInclude Include="Graph.h" />
+    <ClInclude Include="Table.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

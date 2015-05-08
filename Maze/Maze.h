@@ -5,9 +5,17 @@
 #include<iostream>
 using namespace std;
 
-struct Path
+class Path
 {
-	int x, y, move=0;
+public:
+	int row, column, move;
+
+	Path(int _row = 0, int _column = 0, int _move = 0)
+	{
+		row = _row;
+		column = _column;
+		move = _move;
+	}
 };
 
 class Maze
@@ -41,6 +49,8 @@ public:
 	void printPath();
 	//开始走迷宫（主要算法）
 	bool run();
+
+	void testDirection();
 };
 
 #endif

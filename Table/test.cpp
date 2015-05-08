@@ -16,6 +16,6 @@ int main()
 	}
 	catch (ArrayIndexOutOfBoundsException)
 	{
-		cout << "下标越界";
+		cout << "下标越界\n";
 	}
 }

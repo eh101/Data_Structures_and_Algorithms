@@ -10,10 +10,17 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Table\Table.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Table\Table.cpp" />
+    <ClCompile Include="test.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{92730EF0-A6AE-42C7-91B7-B89E5B435D31}</ProjectGuid>
+    <ProjectGuid>{012C1A7A-6E2F-49F0-A018-B99B883B6BC0}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>LinkStack</RootNamespace>
+    <RootNamespace>MST</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -77,13 +84,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="LinkStack.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="LinkStack.cpp" />
-    <ClCompile Include="test.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
